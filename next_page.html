@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portrait</title>
+    <style>
+
+        
+
+        #looping-paragraph {
+            font-size: 4px; /* Adjust font size as needed */
+            line-height: .9; /* Adjust line height for readability */
+            height: 100vh;
+            overflow: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+
+
+            background-image: url("12.jpeg");
+
+            background-size: cover; /* Use "cover" to fill the entire element with the image */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            z-index: 1;
+        }
+
+        @keyframes gradientColorChange {
+            50% {
+                color: transparent;
+            }
+            100% {
+                color: #ffffff; /* Change to the background color you desire */
+            }
+        }
+
+        #previousButtonImg {
+            position: fixed;
+            bottom: 95%;
+            left: 80%;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <i>
+    <div id="looping-paragraph">
+        <!-- This is where the looping content will be added -->
+    </div>
+
+    <!-- JavaScript to generate and append content to the paragraph -->
+    <script>
+        const loopingParagraph = document.getElementById("looping-paragraph");
+        const loremIpsum = `Sa pag gising ko tila himig mo ang bungad ng araw ko
+Pag mulat ng mata jusko eto may muta pa ako ugh
+Teka ano na nga ba san na ba papunta
+Lungkot nang buhay ko'y talagang grabe na
+Hanggang saan ba aabot ang panaginip ko
+Sa isang babaeng umaalon ang kanyang buhok
+Para bang gusto ko na tumakas talaga sa
+Isang bangungot na binuo ko nang mag isa
+Habang ako'y papatulog na dapat na ng mahimbing
+Ako'y nappraning at napapailing sa
+Mga bagay na iniisip ko sa tuwing ako'y nababato
+Bakit ganto naninigas ang ulo ko
+Tumayo nalang bigla ang aking buhok tila ba parang May isang babae na nakatayo sa sulok
+At di na makalagaw ang aking
+Nararamdamdam na para bang may humahaplos na
+Sa aking tiyan Kasabay nitoy hawak ko na ang isang mainit na uhhh isang tasang kape
+Bakit ganto ba pre hindi mapakali sa Tuwing ako'y nag iisa wala na akong pake
+Para kang bahaghari Sa liwanag iyong nadali
+Kung hindi ikaw ang pinangako mabuti nalang na maging isang pari Sa kamandag na taglay ay grabe
+Walang sinabe mga babae, sa karilagan, kapag dumaan Kasalanan ko nanaman dahil naakit
+Sapula mo na labi sana nakatitig ka sa'kin palagi
+At sa pagdilat sa umaga tinig mo ang panggising sakin Na parang pelikula, di na kaylangan mag cinema Ikaw ang buong istorya, sabay boses mo ang nagsisillbi na musika Sining sa museo na tanging diyos lamang ang nagpinta Nakita kita naparang
+anghel, para sakin at di sa iba Ang hirap na magbida, ang isa na extra Sa litrato na di para sa kanya`; // Your long text here
+
+        function fillScreenWithParagraph() {
+            const windowHeight = window.innerHeight;
+            let maxScrollHeight = loopingParagraph.scrollHeight;
+            let paragraphContent = "";
+
+            while (maxScrollHeight <= windowHeight) {
+                paragraphContent += loremIpsum;
+                loopingParagraph.innerHTML = paragraphContent;
+                maxScrollHeight = loopingParagraph.scrollHeight;
+            }
+        }
+
+        // Call the function initially and on window resize
+        fillScreenWithParagraph();
+        window.addEventListener("resize", fillScreenWithParagraph);
+    </script>
+
+    <!-- Previous button -->
+    <a href="index.html">
+        <img id="previousButtonImg" src="n1.png" alt="Previous">
+    </a>
+    </i>
+</body>
+</html>
